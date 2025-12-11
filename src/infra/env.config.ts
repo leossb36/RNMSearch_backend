@@ -10,6 +10,7 @@ interface ServerConfig {
   environment: string
   corsOrigins: string
   prefix: string
+  url: string
 }
 
 interface IntegrationConfig {
@@ -37,6 +38,7 @@ export class EnvConfig {
         port: Number.parseInt(process.env.SERVICE_PORT ?? '3001', 10),
         environment: process.env.NODE_ENV || 'development',
         corsOrigins: process.env.CORS_ORIGINS ?? '*',
+        url: process.env.SERVER_URL || 'http://localhost:3001',
         prefix: '/api'
       },
       integration: {

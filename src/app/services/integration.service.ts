@@ -88,8 +88,6 @@ export class IntegrationService extends ContainerMixin {
       const take = pagination.take || 10
       const skip = pagination.skip || 0
 
-      // Calcula qual página da API do Rick and Morty buscar
-      // A API retorna 20 itens por página
       const apiPage = Math.floor(skip / 20) + 1
       const offsetInPage = skip % 20
 

@@ -1,0 +1,6 @@
+echo "🧹 Rodando prettier antes do commit... Aguarde!"
+npm run format:all
+echo "Prettier concluído com sucesso!"
+echo "Rodando ESLint antes do commit... Aguarde!"
+npm run lint
+echo "ESLint concluído com sucesso!"

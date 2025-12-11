@@ -1,0 +1,32 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: rnm-search-backend
+    restart: unless-stopped
+    ports:
+      - '${PORT:-3001}:${PORT:-3001}'
+    env_file:
+      - .env
+    environment:
+      - NODE_ENV=${NODE_ENV:-production}
+      - PORT=${PORT:-3001}
+      - CORS_ORIGINS=${CORS_ORIGINS}
+      - SERVICE_TITLE=${SERVICE_TITLE}
+      - SERVICE_DESCRIPTION=${SERVICE_DESCRIPTION}
+      - SERVICE_VERSION=${SERVICE_VERSION}
+      - SERVICE_TAG=${SERVICE_TAG}
+      - INTEGRATION_BASE_URL=${INTEGRATION_BASE_URL}
+    networks:
+      - rnm-network
+    healthcheck:
+      test: ['CMD', 'curl', '-f', '${SERVER_HOST:-localhost}:${PORT:-3001}/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  rnm-network:
+    driver: bridge

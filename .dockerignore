@@ -1,0 +1,20 @@
+node_modules
+dist
+.git
+.gitignore
+README.md
+.env
+.env.*
+npm - debug.log
+coverage
+.vscode
+.idea
+*.log
+test
+**/*.spec.ts
+**/*.test.ts
+.prettierrc
+.eslintrc
+eslint.config.mjs
+test - cookies.js
+docs
